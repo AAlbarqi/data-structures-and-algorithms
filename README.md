@@ -17,5 +17,5 @@ a function called reverseArray which takes an array as an argument and return an
 Done without utilizing any of the built-in methods available to the language.
 
 ## Solution
-
 *check array-reverse folder*
+![](./assets/arrayReverse.jpg)
