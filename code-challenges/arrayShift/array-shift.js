@@ -25,3 +25,5 @@ let insertShiftArray = (arr, val) => {
 
     return result;
 }
+
+module.exports = insertShiftArray;
