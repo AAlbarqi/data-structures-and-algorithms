@@ -4,4 +4,4 @@ How to get the fibonacci number of a digit using recursive and iterative solutio
 
 ### WhiteBoard
 
-![](../../assets/nFib.jpg)
+![](../../assets/nfib.jpg)
