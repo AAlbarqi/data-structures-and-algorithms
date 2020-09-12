@@ -90,6 +90,29 @@ class LinkedList {
         }
     }
 
+    kthFromEnd(k) {
+        if (k < 0) {
+          throw new Error('Argument must be >= 0');
+        }
+        let len = 1;
+        let current = this.head;
+        while (current.next) {
+          len++;
+          current = current.next;
+        }
+        if (k > len) {
+          throw new Error(
+            'Argument must be less than the length of the LinkedList instance.'
+          );
+        }
+    
+        current = this.head;
+        for (let i = 1; i < len - k; i++) {
+          current = current.next;
+        }
+        return current.value;
+      }
+
 }
 
 module.exports = { Node, LinkedList };

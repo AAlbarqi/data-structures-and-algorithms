@@ -27,3 +27,7 @@ Create a LinkedList class with a method insert that can instantiate a new node w
 
 ![](../../assets/linkedlist2.jpg)
 
+- for the KthFromEnd method
+
+![](../../assets/linkedlist3.jpg)
+
