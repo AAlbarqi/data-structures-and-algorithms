@@ -110,3 +110,29 @@ describe('Testing append, insertAfter and insertBefore methods', () => {
     expect(last.value).toBe('b');
   });
 });
+
+describe('kthFromEnd method', () => {
+  const ll = new LinkedList();
+  ll.append(1);
+  ll.append(3);
+  ll.append(8);
+  ll.append(2);
+  it('Should throw an error where `k` is greater than the length of the linked list', () => {
+    expect(() => ll.kthFromEnd(100)).toThrow();
+  });
+  it('Should return a value where `k` and the length of the list are the same', () => {
+    expect(ll.kthFromEnd(4)).toBe(1);
+  });
+  it('Should throw an error where `k` is not a positive integer', () => {
+    expect(() => ll.kthFromEnd(-1)).toThrow();
+  });
+
+  it('Should return a value where the linked list is of a size 1', () => {
+    const nl = new LinkedList();
+    nl.append('a');
+    expect(nl.kthFromEnd(0)).toBe('a');
+  });
+  it('Should return a value where `k` is not at the end, but somewhere in the middle of the linked list', () => {
+    expect(ll.kthFromEnd(2)).toBe(3);
+  });
+});
