@@ -61,28 +61,30 @@ describe('Queue tests', () => {
   });
   it('Can successfully check if a queue is empty', () => {
     const queue = new Queue();
-    expect(queue).toBeDefined();
+    expect(queue.isEmpty()).toBeTruthy();
+    queue.enqueue(1);
+    expect(queue.isEmpty()).toBeFalsy();
   });
   it('Can successfully enqueue onto a queue', () => {
     const queue = new Queue();
     queue.enqueue(1);
-    expect(queue.back.value).toBe(1);
+    expect(queue.front.value).toBe(1);
   });
   it('Can successfully enqueue multiple items into a queue', () => {
     const queue = new Queue();
     queue.enqueue(1);
-    expect(queue.back.value).toBe(1);
+    expect(queue.front.value).toBe(1);
     queue.enqueue(2);
-    expect(queue.back.value).toBe(2);
+    expect(queue.front.next.value).toBe(2);
     queue.enqueue(3);
-    expect(queue.back.value).toBe(3);
+    expect(queue.front.next.next.value).toBe(3);
   });
   it('Can successfully dequeue off of a queue the expected value', () => {
     const queue = new Queue();
     queue.enqueue(1);
-    expect(queue.back.value).toBe(1);
+    expect(queue.front.value).toBe(1);
     queue.enqueue(2);
-    expect(queue.back.value).toBe(2);
+    expect(queue.front.next.value).toBe(2);
     expect(queue.front.value).toBe(1);
     queue.dequeue();
     expect(queue.front.value).toBe(2);
@@ -90,16 +92,16 @@ describe('Queue tests', () => {
   it('Can successfully peek into a queue, seeing the expected value', () => {
     const queue = new Queue();
     queue.enqueue(1);
-    expect(queue.back.value).toBe(1);
+    expect(queue.front.value).toBe(1);
     expect(queue.peek()).toBe(1);
     queue.enqueue(2);
-    expect(queue.back.value).toBe(2);
+    expect(queue.front.next.value).toBe(2);
     expect(queue.peek()).toBe(1);
     queue.enqueue(3);
-    expect(queue.back.value).toBe(3);
+    expect(queue.front.next.next.value).toBe(3);
     expect(queue.peek()).toBe(1);
     queue.enqueue(4);
-    expect(queue.back.value).toBe(4);
+    expect(queue.front.next.next.next.value).toBe(4);
     expect(queue.peek()).toBe(1);
   });
   it('Can successfully empty a queue after multiple dequeues', () => {
@@ -108,13 +110,14 @@ describe('Queue tests', () => {
     queue.enqueue(2);
     queue.enqueue(3);
     queue.enqueue(4);
-    expect(queue.back.value).toBe(4);
+    expect(queue.front.value).toBe(1);
     expect(queue.peek()).toBe(1);
     queue.dequeue();
     queue.dequeue();
     queue.dequeue();
     queue.dequeue();
-    expect(queue.back).toBeNull();
-    expect(queue.peek()).toBeNull();
+    expect(queue.front).toBeNull();
+    expect( () => queue.peek().toThrow());
+    expect( () => queue.dequeue().toThrow());
   });
 });

@@ -38,3 +38,5 @@ The Node class is a duplicate of the Node class created for use with linked list
 - peek() -> data
 
 ## Whiteboard
+
+![](../assets/stack&queue.jpg)

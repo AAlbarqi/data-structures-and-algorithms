@@ -61,69 +61,23 @@ class Stack {
  * @param peek gets the first element in the queue
  * @param isEmpty checks whether or not the queue is empty.
  */
-// class Queue {
-//   constructor() {
-//     this.back = null;
-//     this.front = null;
-//   }
-
-//   enqueue(val) {
-//     const node = new Node(val);
-//     node.next = this.back;
-//     this.back = node;
-//     if (!this.front) {
-//       this.front = node;
-//     }
-//   }
-
-//   dequeue() {
-//     let current = this.back;
-//     if (!current) {
-//       return null;
-//     }
-//     if (!current.next) {
-//       this.back = null;
-//       this.front = null;
-//       return current.value;
-//     }
-
-//     while (current.next && current.next.next) {
-//       current = current.next;
-//     }
-//     const target = current.next;
-//     current.next = null;
-//     this.front = current;
-//     return target.value;
-//   }
-
-//   peek() {
-//     if (!this.front) {
-//       return null;
-//     }
-//     if (this.front) {
-//       return this.front.value;
-//     }
-//   }
-
-//   isEmpty(){
-//     if(this.front){
-//       return false;
-//     }
-//     return true;
-//   }
-// }
 
 class Queue {
   constructor() {
-    this.back = null;
+    this.front = null;
   }
 
   enqueue(val) {
     const node = new Node(val);
-    node.next = null;
     if (!this.front) {
       this.front = node;
+      return;
     }
+    let current = this.front;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = node;
   }
 
   dequeue() {
@@ -138,7 +92,7 @@ class Queue {
 
   peek() {
     if (!this.front) {
-      return null;
+      throw new Error('Empty Queue');
     }
     if (this.front) {
       return this.front.value;
@@ -146,10 +100,10 @@ class Queue {
   }
 
   isEmpty(){
-    if(this.front){
-      return false;
+    if(!this.front){
+      return true;
     }
-    return true;
+    return false;
   }
 }
 module.exports = { Node, Stack, Queue };
