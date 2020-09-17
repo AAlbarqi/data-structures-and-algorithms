@@ -39,4 +39,4 @@ The Node class is a duplicate of the Node class created for use with linked list
 
 ## Whiteboard
 
-![](../assets/stack&queue.jpg)
+![](../../assets/stack&queue.jpg)
