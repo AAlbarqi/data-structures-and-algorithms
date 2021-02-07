@@ -4,6 +4,8 @@ This repository contains the daily challenges of the 301, 401 courses.
 
 # Documenation for 401 challenges
 
+Follow this link: https://github.com/Advanced-JavaScript/data-structures-and-algorithms
+
 ## Algorithms
 
 - [ArrayReverse](./code-challenges/arrayReverse/README.md)
