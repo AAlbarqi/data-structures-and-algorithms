@@ -19,5 +19,3 @@ Follow this link: https://github.com/Advanced-JavaScript/data-structures-and-alg
 - [LinkedList](./Data-Structures/linkedList/README.md)
 - [Stacks&Queues](./Data-Structures/stacksAndQueues/README.md)
 
-
-
